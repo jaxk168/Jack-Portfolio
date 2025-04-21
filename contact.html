@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	 <link rel="icon" type="image/x-icon" href="images/mk.png">
+    <title>Contact | Jack AMV Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        main {
+            flex: 1;
+            position: relative;
+        }
+        
+        .nav-item {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item a {
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover a {
+            transform: scale(1.2);
+            color: #00ffff !important;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+        }
+        
+        @keyframes pulse-glow {
+            0% { text-shadow: 0 0 5px #00ffff; }
+            50% { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff; }
+            100% { text-shadow: 0 0 5px #00ffff; }
+        }
+        
+        .nav-item:hover a {
+            animation: pulse-glow 2s infinite;
+        }
+        
+        .form-input {
+            background-color: rgba(17, 24, 39, 0.8);
+            border: 1px solid #374151;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+            transform: scale(1.02);
+        }
+        
+        .form-input:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(45deg, #007777, #00ffff);
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+        
+        .contact-info-item {
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .contact-info-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            border-color: #00ffff;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+            z-index: 10;
+        }
+        
+        .contact-info-item:hover h3 {
+            text-shadow: 0 0 10px #00ffff;
+        }
+        
+        .contact-info-item:hover svg {
+            filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.8));
+            transform: scale(1.1);
+        }
+        
+        .contact-info-item svg {
+            transition: all 0.4s ease;
+        }
+        
+        /* Glow effect for the form section */
+        .form-section {
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+        }
+        
+        .form-section:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+            transform: scale(1.02);
+        }
+        
+        /* Animated border glow effect */
+        @keyframes border-glow {
+            0% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); }
+            100% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); }
+        }
+        
+        .glow-on-hover:hover {
+            animation: border-glow 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans overflow-x-hidden">
+    <div id="particles-js"></div>
+    
+    <nav class="flex justify-between items-center p-6 bg-gray-900 sticky top-0 z-50 shadow-lg fade-in">
+        <h1 class="text-2xl font-bold"><a href="index.html">Jack | AMV Editor</a></h1>
+        <ul class="flex space-x-6 text-sm">
+            <li class="nav-item"><a href="Home.html" class="hover:text-cyan-400 transition-all duration-300">Home</a></li>
+            <li class="nav-item"><a href="about.html"  class="hover:text-cyan-400 transition-all duration-300">About</a></li>
+            <li class="nav-item"><a href="socials.html"  class="hover:text-cyan-400 transition-all duration-300">Socials</a></li>
+            <li class="nav-item"><a href="github.html"  class="hover:text-cyan-400 transition-all duration-300">GitHub</a></li>
+            <li class="nav-item"><a href="contact.html"  class="hover:text-cyan-400 transition-all duration-300 font-bold text-cyan-400">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main class="py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            <section class="mb-16 fade-in">
+                <h2 class="text-4xl font-bold mb-6 text-center">Get In Touch</h2>
+                <p class="text-lg text-center max-w-2xl mx-auto mb-12">Have a project in mind or want to collaborate? Feel free to reach out through any of my social media accounts below or fill out the contact form.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-center contact-info-item fade-in glow-on-hover">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto mb-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <h3 class="text-xl font-semibold mb-2">Email</h3>
+                        <p class="text-cyan-400">contact: jaxkboy30@gmail.com</p>
+                    </div>
+                    
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-center contact-info-item fade-in glow-on-hover">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto mb-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                        </svg>
+                        <h3 class="text-xl font-semibold mb-2">Telegram</h3>
+                        <p class="text-cyan-400">@Honkai_arikathana</p>
+                    </div>
+                    
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-center contact-info-item fade-in glow-on-hover">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto mb-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636a9 9 0 010 12.728m-12.728 0a9 9 0 010-12.728m12.728 0L5.636 18.364" />
+                        </svg>
+                        <h3 class="text-xl font-semibold mb-2">Social Media</h3>
+                        <p class="text-cyan-400">You can go to my Social Media page</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="fade-in bg-gray-900 p-8 rounded-lg shadow-xl form-section glow-on-hover">
+                <h3 class="text-2xl font-bold mb-6 text-center">Send Me a Message</h3>
+                <form action="#" method="POST" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full p-3 rounded-lg form-input" placeholder="Your name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full p-3 rounded-lg form-input" placeholder="Your email">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
+                        <input type="text" id="subject" name="subject" class="w-full p-3 rounded-lg form-input" placeholder="What's this about?">
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full p-3 rounded-lg form-input" placeholder="Tell me about your project"></textarea>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="submit-btn px-8 py-3 rounded-lg font-medium text-white">Send Message</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+    
+    <footer class="text-center p-6 bg-gray-800 text-sm text-gray-400 fade-in mt-12">
+        © 2025 Jack | AMV Editor. All rights reserved.
+    </footer>
+    
+    <script>
+        gsap.utils.toArray('.fade-in').forEach((el, i) => {
+            gsap.fromTo(el, 
+                { opacity: 0, y: 30 }, 
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1, 
+                    delay: i * 0.2, 
+                    scrollTrigger: { 
+                        trigger: el, 
+                        start: 'top 90%', 
+                        toggleActions: 'play none none none' 
+                    } 
+                });
+        });
+        
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#00ffff" },
+                shape: { type: "circle", stroke: { width: 0, color: "#000000" }, polygon: { nb_sides: 5 }, },
+                opacity: { value: 0.5, random: false, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }, },
+                size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false }, },
+                line_linked: { enable: true, distance: 150, color: "#00ffff", opacity: 0.4, width: 1, },
+                move: { enable: true, speed: 4, direction: "none", random: false, straight: false, out_mode: "out", attract: { enable: false, rotateX: 600, rotateY: 1200 }, },
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true,
+                },
+                modes: {
+                    grab: { distance: 140, line_linked: { opacity: 1 } },
+                    bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+                    repulse: { distance: 200, duration: 0.4 },
+                    push: { particles_nb: 4 },
+                    remove: { particles_nb: 2 },
+                },
+            },
+            retina_detect: true,
+        });
+    </script>
+</body>
+</html>

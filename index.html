@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	 <link rel="icon" type="image/x-icon" href="images/mk.png">
+    <title>Jack | AMV Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        main {
+            flex: 1;
+            position: relative;
+        }
+        
+        .nav-item {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item a {
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover a {
+            transform: scale(1.2);
+            color: #00ffff !important;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+        }
+        
+        @keyframes pulse-glow {
+            0% { text-shadow: 0 0 5px #00ffff; }
+            50% { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff; }
+            100% { text-shadow: 0 0 5px #00ffff; }
+        }
+        
+        .nav-item:hover a {
+            animation: pulse-glow 2s infinite;
+        }
+
+        .gif-container {
+            display: block;
+			border: 2px solid #00ffff;
+            margin-top: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gif-container:hover {
+            border: 2px solid #00ffff;
+			transform: scale(1.05);
+            box-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+        }
+
+        .gif-container img {
+            width: 100%;
+            max-width: 300px; 
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans overflow-x-hidden">
+    <div id="particles-js"></div>
+    
+    <nav class="flex justify-between items-center p-6 bg-gray-900 sticky top-0 z-50 shadow-lg fade-in">
+        <h1 class="text-2xl font-bold"><a href="index.html">Jack | AMV Editor</a></h1>
+        <ul class="flex space-x-6 text-sm">
+            <li class="nav-item"><a href="Home.html" class="hover:text-cyan-400 transition-all duration-300">Home</a></li>
+            <li class="nav-item"><a href="about.html" class="hover:text-cyan-400 transition-all duration-300">About</a></li>
+            <li class="nav-item"><a href="socials.html" class="hover:text-cyan-400 transition-all duration-300">Socials</a></li>
+            <li class="nav-item"><a href="github.html" class="hover:text-cyan-400 transition-all duration-300">GitHub</a></li>
+            <li class="nav-item"><a href="contact.html"  class="hover:text-cyan-400 transition-all duration-300">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section class="min-h-[calc(100vh-80px)] flex flex-col justify-center items-center text-center fade-in">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-4">Welcome to My Portfolio</h2>
+            <p class="text-lg sm:text-xl max-w-xl">ចង់ដឹងពីអី​ ចុចលើប៊ូតុងនឹងទៅ អូខេ?​ ខ្ញុំខ្ជិលសរសេរជាអក្សរខ្មែរ សរសេរជាអង់គ្លេសងាយជាងហើយលឿន!</p>
+            <!-- GIF added below the paragraph -->
+            <div class="gif-container">
+                <img src="images/sjw.gif" alt="Your GIF" />
+            </div>
+        </section>
+    </main>
+    
+    <footer class="text-center p-6 bg-gray-800 text-sm text-gray-400 fade-in">
+        © 2025 Jack | AMV Editor. All rights reserved.
+    </footer>
+    
+    <script>
+        gsap.utils.toArray('.fade-in').forEach((el, i) => {
+            gsap.fromTo(el, 
+                { opacity: 0, y: 30 }, 
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1, 
+                    delay: i * 0.2, 
+                    scrollTrigger: { 
+                        trigger: el, 
+                        start: 'top 90%', 
+                        toggleActions: 'play none none none' 
+                    } 
+                });
+        });
+        
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#00ffff" },
+                shape: { type: "circle", stroke: { width: 0, color: "#000000" }, polygon: { nb_sides: 5 }, },
+                opacity: { value: 0.5, random: false, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }, },
+                size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false }, },
+                line_linked: { enable: true, distance: 150, color: "#00ffff", opacity: 0.4, width: 1, },
+                move: { enable: true, speed: 4, direction: "none", random: false, straight: false, out_mode: "out", attract: { enable: false, rotateX: 600, rotateY: 1200 }, },
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true,
+                },
+                modes: {
+                    grab: { distance: 140, line_linked: { opacity: 1 } },
+                    bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+                    repulse: { distance: 200, duration: 0.4 },
+                    push: { particles_nb: 4 },
+                    remove: { particles_nb: 2 },
+                },
+            },
+            retina_detect: true,
+        });
+    </script>
+</body>
+</html>

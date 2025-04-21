@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	 <link rel="icon" type="image/x-icon" href="images/mk.png">
+    <title>Jack | AMV Editor - GitHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        main {
+            flex: 1;
+            position: relative;
+        }
+        
+        /* Glow and scale effect for nav items */
+        .nav-item {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item a {
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover a {
+            transform: scale(1.2);
+            color: #00ffff !important;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+        }
+        
+        /* Optional: Add a subtle pulse animation */
+        @keyframes pulse-glow {
+            0% { text-shadow: 0 0 5px #00ffff; }
+            50% { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff; }
+            100% { text-shadow: 0 0 5px #00ffff; }
+        }
+        
+        .nav-item:hover a {
+            animation: pulse-glow 2s infinite;
+        }
+        
+        .repo-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+        }
+        
+        .repo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+            border: 1px solid rgba(0, 255, 255, 0.5);
+        }
+        
+        .code-block {
+            font-family: 'Consolas', 'Monaco', monospace;
+            background-color: #0d1117;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+        
+        .code-line {
+            display: block;
+            padding: 0.25rem 1rem;
+        }
+        
+        .code-line:hover {
+            background-color: rgba(0, 255, 255, 0.05);
+        }
+        
+        .line-number {
+            display: inline-block;
+            width: 2rem;
+            color: #565656;
+            user-select: none;
+        }
+        
+        .keyword {
+            color: #ff79c6;
+        }
+        
+        .string {
+            color: #f1fa8c;
+        }
+        
+        .comment {
+            color: #6272a4;
+        }
+        
+        .function {
+            color: #50fa7b;
+        }
+        
+        .variable {
+            color: #8be9fd;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans overflow-x-hidden">
+    <div id="particles-js"></div>
+    
+    <!-- Navigation -->
+    <nav class="flex justify-between items-center p-6 bg-gray-900 sticky top-0 z-50 shadow-lg fade-in">
+        <h1 class="text-2xl font-bold"><a href="index.html">Jack | AMV Editor</a></h1>
+        <ul class="flex space-x-6 text-sm">
+            <li class="nav-item"><a href="Home.html" class="hover:text-cyan-400 transition-all duration-300">Home</a></li>
+            <li class="nav-item"><a href="about.html" class="hover:text-cyan-400 transition-all duration-300">About</a></li>
+            <li class="nav-item"><a href="socials.html" class="hover:text-cyan-400 transition-all duration-300">Socials</a></li>
+            <li class="nav-item"><a href="github.html" class="text-cyan-400 transition-all duration-300">GitHub</a></li>
+            <li class="nav-item"><a href="contact.html" class="hover:text-cyan-400 transition-all duration-300">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- GitHub Hero Section -->
+        <section class="min-h-[40vh] flex flex-col justify-center items-center text-center fade-in p-8 mb-8">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-6">Open Source Projects</h2>
+            <div class="w-24 h-1 bg-cyan-400 mb-8"></div>
+            <div class="flex items-center mb-8">
+                <i class="fab fa-github text-5xl mr-6"></i>
+                <div class="text-left">
+                    <h3 class="text-2xl font-bold"><a href="https://github.com/jaxk168">jaxk168</a></h3>
+                    <p class="text-gray-400">For Progammars especially because I'm also Programmer and Editor in the same time </p>
+                </div>
+            </div>
+            <p class="text-xl max-w-2xl">
+                Explore my open-source projects for video editing, AMV creation tools, and editing utilities.
+            </p>
+        </section>
+        
+        <!-- Repository Section -->
+        <section class="py-12 px-6 fade-in">
+            <div class="max-w-5xl mx-auto">
+                <h3 class="text-3xl font-bold mb-12 text-center">Featured Repositories</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+
+                    <div class="repo-card bg-gray-900 rounded-lg p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-bold text-cyan-400">Snake game</h4>
+                            <div class="flex space-x-2 text-sm">
+                                <span class="flex items-center"><i class="fas fa-star mr-1"></i> 0</span>
+                                <span class="flex items-center"><i class="fas fa-code-branch mr-1"></i> 1</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                           Snake game using only HTML.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-orange-900 text-blue-200 text-xs px-2 py-1 rounded">HTML</span>
+                        </div>
+                        <a href="https://github.com/jaxk168/Jaxkgame" class="text-cyan-400 hover:text-cyan-300 flex items-center">
+                            View Repository <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+
+                    <div class="repo-card bg-gray-900 rounded-lg p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-bold text-cyan-400">Kak-flappy-bird</h4>
+                            <div class="flex space-x-2 text-sm">
+                                <span class="flex items-center"><i class="fas fa-star mr-1"></i> 0</span>
+                                <span class="flex items-center"><i class="fas fa-code-branch mr-1"></i> 1</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Flappy bird game, very very Kak.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-900 text-yellow-200 text-xs px-2 py-1 rounded">CSS</span>
+                            <span class="bg-yellow-900 text-red-200 text-xs px-2 py-1 rounded">JS</span>
+							<span class="bg-orange-900 text-yellow-200 text-xs px-2 py-1 rounded">HTML</span>
+                        </div>
+                        <a href="https://github.com/jaxk168/Kak-flappy-bird" class="text-cyan-400 hover:text-cyan-300 flex items-center">
+                            View Repository <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+
+                    <div class="repo-card bg-gray-900 rounded-lg p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-bold text-cyan-400">Kak-casio</h4>
+                            <div class="flex space-x-2 text-sm">
+                                <span class="flex items-center"><i class="fas fa-star mr-1"></i> 1</span>
+                                <span class="flex items-center"><i class="fas fa-code-branch mr-1"></i> 1</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            My first casio app.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-orange-900 text-white-200 text-xs px-2 py-1 rounded">HTML</span>
+                            <span class="bg-yellow-700 text-white-200 text-xs px-2 py-1 rounded">JS</span>
+							<span class="bg-purple-700 text-white-200 text-xs px-2 py-1 rounded">CSS</span>
+                        </div>
+                        <a href="https://github.com/jaxk168/Kak-casio" class="text-cyan-400 hover:text-cyan-300 flex items-center">
+                            View Repository <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+
+                    <div class="repo-card bg-gray-900 rounded-lg p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-bold text-cyan-400">Kak-flying-ball</h4>
+                            <div class="flex space-x-2 text-sm">
+                                <span class="flex items-center"><i class="fas fa-star mr-1"></i> 0</span>
+                                <span class="flex items-center"><i class="fas fa-code-branch mr-1"></i> 1</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                           Ball flying with paddle to prevent it from falling.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-yellow-900 text-blue-200 text-xs px-2 py-1 rounded">JS</span>
+                            <span class="bg-purple-900 text-green-200 text-xs px-2 py-1 rounded">CSS</span>
+                            <span class="bg-orange-900 text-purple-200 text-xs px-2 py-1 rounded">HTML</span>
+                        </div>
+                        <a href="https://github.com/jaxk168/Kak-fly-ball" class="text-cyan-400 hover:text-cyan-300 flex items-center">
+                            View Repository <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 rounded-lg p-8 mb-12">
+                    <h4 class="text-2xl font-bold mb-6">Featured Code: Beat Detection Algorithm</h4>
+                    <p class="text-gray-300 mb-6">
+                        This Python function extracts beats from audio files for perfect synchronization.
+                    </p>
+                    
+                    <div class="code-block mb-6">
+                        <code>
+                            <span class="code-line"><span class="line-number">1</span><span class="keyword">import</span> <span class="variable">librosa</span></span>
+                            <span class="code-line"><span class="line-number">2</span><span class="keyword">import</span> <span class="variable">numpy</span> <span class="keyword">as</span> <span class="variable">np</span></span>
+                            <span class="code-line"><span class="line-number">3</span></span>
+                            <span class="code-line"><span class="line-number">4</span><span class="comment"># Advanced beat detection for AMV sync</span></span>
+                            <span class="code-line"><span class="line-number">5</span><span class="keyword">def</span> <span class="function">extract_beats</span>(<span class="variable">audio_file</span>, <span class="variable">sensitivity</span>=<span class="variable">1.0</span>):</span>
+                            <span class="code-line"><span class="line-number">6</span>    <span class="comment"># Load audio file</span></span>
+                            <span class="code-line"><span class="line-number">7</span>    <span class="variable">y</span>, <span class="variable">sr</span> = <span class="variable">librosa</span>.<span class="function">load</span>(<span class="variable">audio_file</span>)</span>
+                            <span class="code-line"><span class="line-number">8</span>    </span>
+                            <span class="code-line"><span class="line-number">9</span>    <span class="comment"># Extract tempo and beat frames</span></span>
+                            <span class="code-line"><span class="line-number">10</span>    <span class="variable">tempo</span>, <span class="variable">beat_frames</span> = <span class="variable">librosa</span>.<span class="function">beat</span>.<span class="function">beat_track</span>(<span class="variable">y</span>=<span class="variable">y</span>, <span class="variable">sr</span>=<span class="variable">sr</span>)</span>
+                            <span class="code-line"><span class="line-number">11</span>    </span>
+                            <span class="code-line"><span class="line-number">12</span>    <span class="comment"># Convert beat frames to timestamps</span></span>
+                            <span class="code-line"><span class="line-number">13</span>    <span class="variable">beat_times</span> = <span class="variable">librosa</span>.<span class="function">frames_to_time</span>(<span class="variable">beat_frames</span>, <span class="variable">sr</span>=<span class="variable">sr</span>)</span>
+                            <span class="code-line"><span class="line-number">14</span>    </span>
+                            <span class="code-line"><span class="line-number">15</span>    <span class="comment"># Adjust beats based on onset strength</span></span>
+                            <span class="code-line"><span class="line-number">16</span>    <span class="variable">onset_env</span> = <span class="variable">librosa</span>.<span class="function">onset</span>.<span class="function">onset_strength</span>(<span class="variable">y</span>=<span class="variable">y</span>, <span class="variable">sr</span>=<span class="variable">sr</span>)</span>
+                            <span class="code-line"><span class="line-number">17</span>    <span class="variable">onset_frames</span> = <span class="variable">librosa</span>.<span class="function">onset</span>.<span class="function">onset_detect</span>(<span class="variable">onset_envelope</span>=<span class="variable">onset_env</span>, <span class="variable">sr</span>=<span class="variable">sr</span>)</span>
+                            <span class="code-line"><span class="line-number">18</span>    </span>
+                            <span class="code-line"><span class="line-number">19</span>    <span class="comment"># Refine beat selection based on sensitivity</span></span>
+                            <span class="code-line"><span class="line-number">20</span>    <span class="variable">refined_beats</span> = <span class="variable">np</span>.<span class="function">intersect1d</span>(<span class="variable">beat_frames</span>, <span class="variable">onset_frames</span>[:<span class="variable">int</span>(<span class="variable">len</span>(<span class="variable">onset_frames</span>) * <span class="variable">sensitivity</span>)])</span>
+                            <span class="code-line"><span class="line-number">21</span>    <span class="variable">refined_beat_times</span> = <span class="variable">librosa</span>.<span class="function">frames_to_time</span>(<span class="variable">refined_beats</span>, <span class="variable">sr</span>=<span class="variable">sr</span>)</span>
+                            <span class="code-line"><span class="line-number">22</span>    </span>
+                            <span class="code-line"><span class="line-number">23</span>    <span class="keyword">return</span> <span class="variable">refined_beat_times</span>, <span class="variable">tempo</span></span>
+                        </code>
+                    </div>
+                    
+                    <a href="https://github.com/jaxk168/beat-detection" class="text-cyan-400 hover:text-cyan-300 flex items-center">
+                        View Full Repository <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="text-center">
+                    <a href="https://github.com/jaxk168?tab=repositories" class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 inline-block border border-cyan-400">
+                        <i class="fab fa-github mr-2"></i> View All My GitHub Repositories
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="text-center p-6 bg-gray-800 text-sm text-gray-400 fade-in">
+        © 2025 Jack | AMV Editor. All rights reserved.
+    </footer>
+    
+    <script>
+        gsap.utils.toArray('.fade-in').forEach((el, i) => {
+            gsap.fromTo(el, 
+                { opacity: 0, y: 30 }, 
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1, 
+                    delay: i * 0.2, 
+                    scrollTrigger: { 
+                        trigger: el, 
+                        start: 'top 90%', 
+                        toggleActions: 'play none none none' 
+                    } 
+                });
+        });
+        
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#00ffff" },
+                shape: { type: "circle", stroke: { width: 0, color: "#000000" }, polygon: { nb_sides: 5 } },
+                opacity: { value: 0.5, random: false, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
+                size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#00ffff",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: { enable: false, rotateX: 600, rotateY: 1200 }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 140, line_linked: { opacity: 1 } },
+                    bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+                    repulse: { distance: 200, duration: 0.4 },
+                    push: { particles_nb: 4 },
+                    remove: { particles_nb: 2 }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+</html>
